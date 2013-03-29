@@ -6,7 +6,7 @@ doverie
 Оперативный план
 -----------------
 
-- [] Делаем без фрейма service.html, service.php
+- [x] Делаем  doverie.html, tdoverie.php
 - [] Выкатываем на dnclive.ru/pub/doverie/
 - []
 
@@ -27,6 +27,10 @@ doverie
 * tdoverie.js - клиентский модуль - если будет какой-то особый функционал
 * tpl/doverie/form.tpl - шаблон страницы прием данных - выкатка результата.
 
+
+на базе josi_light
+
+самый лучший вариант... в работу!
 
 
 
