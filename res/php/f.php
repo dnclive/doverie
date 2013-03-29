@@ -33,14 +33,15 @@
 	/**/
  
 	//инклуды
-	require_once(dirname(__FILE__)."/../josi_lib/php/dev/tdeb.php");		//библиотека отладки
-	require_once(dirname(__FILE__)."/../josi_lib/php/dev/tuti.php");		//библиотека разных полезных функций
-	require_once(dirname(__FILE__)."/../josi_lib/php/dev/tstore.php");		//работа с хранилищем данных
+	require_once(dirname(__FILE__)."/../josi/php/dev/tdeb.php");		//библиотека отладки
+	require_once(dirname(__FILE__)."/../josi/php/dev/tuti.php");		//библиотека разных полезных функций
+	require_once(dirname(__FILE__)."/../josi/php/dev/tstore.php");		//работа с хранилищем данных
 	require_once("t_sql.php");							//библиотека работы с mysql
-	require_once("t_vkcom.php");						//библиотека для работы с vk.com
+	//require_once("t_vkcom.php");						//библиотека для работы с vk.com
 	require_once("tf.php");								//библиотека для работы с функциями
+	require_once("t_doverie.php");						//библиотека для работы с doverie
 	
-	require_once("t_ot.php");							//реализация задания 1 ОНТИКО
+	//require_once("t_ot.php");							//реализация задания 1 ОНТИКО
 		
 		
 	//phpinfo();
@@ -65,6 +66,7 @@
 	}
 	
 	t_deb_flog(__LINE__, __FILE__, $args, "f");
+	t_deb_flog(__LINE__, __FILE__, $allow_f, "f");
 	
 	tf_f($args);
 	

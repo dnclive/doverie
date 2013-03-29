@@ -9,13 +9,30 @@
 
 	function t_doverie_f_action($args)
 	{
-		$base_url=$args["base_url"];
-		$sslcert=$args["sslcert"];
-		$sslcertpasswd=$args["sslcertpasswd"];
-		$cainfo=$args["cainfo"];
 		
+		t_deb_flog(__LINE__, __FILE__, $args, "t_doverie");
 		
-		$url=$base_url;
+		global $t_doverie_allow_param_arr;
+		
+		$base_url=$GLOBALS["t_doverie_base_url"];
+		$sslcert=$GLOBALS["t_doverie_sslcert"];
+		$sslcertpasswd=$GLOBALS["t_doverie_sslcertpasswd"];
+		$cainfo=$GLOBALS["t_doverie_cainfo"];
+		
+		$param_arr=tuti_f_some
+		(
+			$args["all_param_arr"], 
+			$t_doverie_allow_param_arr
+		);
+		
+		$url=$base_url.tuti_f_param_str
+		(
+			array("param_arr"=>$param_arr,"drop_empty"=>true)
+		);
+		
+		t_deb_flog(__LINE__, __FILE__, $t_doverie_allow_param_arr, "t_doverie");
+		t_deb_flog(__LINE__, __FILE__, $param_arr, "t_doverie");
+		t_deb_flog(__LINE__, __FILE__, $url, "t_doverie");
 		
 		if ($cses = curl_init()) 
 		{
@@ -33,6 +50,8 @@
 		
 		$resp = curl_exec($cses); // выполняем запрос curl
 		curl_close($cses);
+		
+		t_deb_flog(__LINE__, __FILE__, $resp, "t_doverie");
 		
 		return Array("resp"=>$resp);
 		

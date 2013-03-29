@@ -21,7 +21,7 @@
  */
 
 	//инклуды
-	require_once(dirname(__FILE__)."/../josi_lib/php/dev/trdb_mysql.php");		//библиотека mysql
+	require_once(dirname(__FILE__)."/../josi/php/dev/trdb_mysql.php");		//библиотека mysql
 
 	function t_sql_f($args)
 	{

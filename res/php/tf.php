@@ -22,8 +22,8 @@
  
  
 	//инклуды
-	require_once(dirname(__FILE__)."/../josi_lib/php/dev/tdeb.php");		//библиотека отладки
-	require_once(dirname(__FILE__)."/../josi_lib/php/dev/tuti.php");		//библиотека разных полезных функций
+	require_once(dirname(__FILE__)."/../josi/php/dev/tdeb.php");		//библиотека отладки
+	require_once(dirname(__FILE__)."/../josi/php/dev/tuti.php");		//библиотека разных полезных функций
 	
 	function tf_f($args)
 	{
