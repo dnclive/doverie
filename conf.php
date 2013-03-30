@@ -63,6 +63,7 @@ $allow_f=array
 	array("f"=>"f_news_fill",					"q_f"=>array()),
 	array("f"=>"f_news_fill_2",					"q_f"=>array()),
 	array("f"=>"t_doverie_f_action",			"q_f"=>array()),
+	array("f"=>"t_doverie_f_quck_test",			"q_f"=>array()),
 );
 
 
@@ -101,11 +102,11 @@ $conf["t_doverie"]=array
 	),
 
 	"base_url"=>"46.29.11.155:443/DOVERIE/?",
-	//"sslcert"=>dirname(__FILE__)."res/doverie/cert/client.pem",
-	"sslcert"=>dirname(__FILE__)."res/doverie/cert/ca.crt",
+	"sslcert"=>dirname(__FILE__)."/res/doverie/cert/client.pem",
+	//"sslcert"=>dirname(__FILE__)."res/doverie/cert/ca.crt",
 	"sslcertpasswd"=>"654321",
-	//"cainfo"=>dirname(__FILE__)."res/doverie/cert/ca.crt",
-	"cainfo"=>dirname(__FILE__)."res/doverie/cert/client.pem",
+	"cainfo"=>dirname(__FILE__)."/res/doverie/cert/ca.crt",
+	//"cainfo"=>dirname(__FILE__)."res/doverie/cert/client.pem",
 );
 
 
