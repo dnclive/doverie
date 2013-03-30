@@ -12,17 +12,19 @@
 		
 		t_deb_flog(__LINE__, __FILE__, $args, "t_doverie");
 		
-		global $t_doverie_allow_param_arr;
+		global $conf;
 		
-		$base_url=$GLOBALS["t_doverie_base_url"];
-		$sslcert=$GLOBALS["t_doverie_sslcert"];
-		$sslcertpasswd=$GLOBALS["t_doverie_sslcertpasswd"];
-		$cainfo=$GLOBALS["t_doverie_cainfo"];
+		$t_do_conf=$conf["t_doverie"];
+		
+		$base_url=$t_do_conf["base_url"];
+		$sslcert=$t_do_conf["sslcert"];
+		$sslcertpasswd=$t_do_conf["sslcertpasswd"];
+		$cainfo=$t_do_conf["cainfo"];
 		
 		$param_arr=tuti_f_some
 		(
 			$args["all_param_arr"], 
-			$t_doverie_allow_param_arr
+			$t_do_conf["allow_param_arr"]
 		);
 		
 		$url=$base_url.tuti_f_param_str
@@ -33,8 +35,13 @@
 		t_deb_flog(__LINE__, __FILE__, $t_doverie_allow_param_arr, "t_doverie");
 		t_deb_flog(__LINE__, __FILE__, $param_arr, "t_doverie");
 		t_deb_flog(__LINE__, __FILE__, $url, "t_doverie");
+		t_deb_flog(__LINE__, __FILE__, $sslcert, "t_doverie");
+		t_deb_flog(__LINE__, __FILE__, $sslcertpasswd, "t_doverie");
+		t_deb_flog(__LINE__, __FILE__, $cainfo, "t_doverie");
 		
-		if ($cses = curl_init($url)) 
+		$resp="";
+		
+		if ($cses = curl_init()) 
 		{
 			$headers = array
 			(
@@ -48,22 +55,20 @@
 			curl_setopt($cses, CURLOPT_SSLCERT, $sslcert);
 			curl_setopt($cses, CURLOPT_SSLCERTPASSWD, $sslcertpasswd);
 			curl_setopt($cses, CURLOPT_CAINFO, $cainfo);
-			curl_setopt($cses, CURLOPT_URL, iconv('utf-8', 'windows-1251', $url));
-			curl_setopt($cses, CURLOPT_HEADER, $headers);
+			//curl_setopt($cses, CURLOPT_URL, iconv('utf-8', 'windows-1251', $url));
+			curl_setopt($cses, CURLOPT_URL, $url);
+			curl_setopt($cses, CURLOPT_HEADER, false);
 			curl_setopt($cses, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($cses, CURLOPT_TIMEOUT, 20);
 			curl_setopt($cses, CURLOPT_USERAGENT, 'Ellis GKH web frontend');
 			curl_setopt($cses, CURLOPT_VERBOSE, true);
 			
-			print_r(curl_getinfo($cses));
+			t_deb_flog(__LINE__, __FILE__, curl_getinfo($cses), "t_doverie");
 		
 			$resp = curl_exec($cses); // выполняем запрос curl
 			curl_close($cses);
 		}
 		
-		
-		
-		echo($resp);
 		
 		t_deb_flog(__LINE__, __FILE__, $resp, "t_doverie");
 		
