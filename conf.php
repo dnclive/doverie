@@ -69,37 +69,46 @@ $allow_f=array
 
 //***t_doverie
 
-//массив разрешенных параметров
-$t_doverie_allow_param_arr=array
+$conf["t_doverie"]=array
 (
-	"action", 
-	"id_account",
-	"period",
-	"measures",
-	"order",
-	"proc",
+
+	//массив разрешенных параметров
+	"allow_param_arr"=>array
+	(
+		"action", 
+		"id_account",
+		"period",
+		"measures",
+		"order",
+		"proc",
+	),
+
+	//массив разрешенных параметров для action
+	"tallow_action_arr"=>array
+	(
+		"Account_Meters",
+		"Account_Meters_Set",
+		"account_Address",
+		"Account_Owners",
+		"Registration",
+		"Residence",
+		"periods",
+		"Balance",
+		"bill_all",
+		"Balance_All",
+		"billimage",
+		"get_dict",
+	),
+
+	"base_url"=>"46.29.11.155:443/DOVERIE/?",
+	//"sslcert"=>dirname(__FILE__)."res/doverie/cert/client.pem",
+	"sslcert"=>dirname(__FILE__)."res/doverie/cert/ca.crt",
+	"sslcertpasswd"=>"654321",
+	//"cainfo"=>dirname(__FILE__)."res/doverie/cert/ca.crt",
+	"cainfo"=>dirname(__FILE__)."res/doverie/cert/client.pem",
 );
 
-//массив разрешенных параметров для action
-$t_doverie_allow_action_arr=array
-(
-	"Account_Meters",
-	"Account_Meters_Set",
-	"account_Address",
-	"Account_Owners",
-	"Registration",
-	"Residence",
-	"periods",
-	"Balance",
-	"bill_all",
-	"Balance_All",
-	"billimage",
-	"get_dict",
-);
-
-$t_doverie_base_url="https://46.29.11.155/DOVERIE/?";
-$t_doverie_sslcert="res/doverie/cert/client.pem";
-$t_doverie_sslcertpasswd="654321";
-$t_doverie_cainfo="res/doverie/cert/ca.crt";
+echo ($t_doverie_sslcert."\r\n");
+echo ($t_doverie_cainfo);
 
 ?>
