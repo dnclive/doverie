@@ -108,7 +108,5 @@ $conf["t_doverie"]=array
 	"cainfo"=>dirname(__FILE__)."res/doverie/cert/client.pem",
 );
 
-echo ($t_doverie_sslcert."\r\n");
-echo ($t_doverie_cainfo);
 
 ?>
