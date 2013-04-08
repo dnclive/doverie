@@ -14,3 +14,5 @@ outerlogin - http://xn--b1adeaoi1aaacy4a.xn--p1ai/manager/index.php?a=30&id=142
 модуль ellis.js - http://xn--b1adeaoi1aaacy4a.xn--p1ai/manager/index.php?a=40&file=site/js/ellis.js&wctx=mgr&source=1
 
 самм ellis - http://ellis-bank.com/
+
+доверие - http://xn--b1adeaoi1aaacy4a.xn--p1ai/
